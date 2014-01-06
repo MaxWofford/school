@@ -55,3 +55,35 @@ Effects on Elasticity
 `VARIABLE COST` Can dip or rise (resources, some labor)
 
 `OPTIMIZED` is where MR=MC
+
+
+
+
+CHAPTER 7
+===
+Different types of Market Structures
+
+`MARKETS` are where buyers and sellers
+
+* meet to exchange goods and services
+
+* are affected by some level of competition
+
+Market Structures
+***
+
+* `Pure (Perfect) Competition` Price is all that matters; Opposite of monopoly
+
+- Completely theoretical
+- LARGE number of SMALL firms
+- Identical products
+- Unlimited Competition
+- No Barriers to Entry
+- Each firm is a Price-Taker
+
+
+* `Monopolistic Competition`
+
+* `Oligopoly`
+
+* `Monopoly`
