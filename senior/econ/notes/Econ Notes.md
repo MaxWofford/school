@@ -69,6 +69,14 @@ Different types of Market Structures
 
 * are affected by some level of competition
 
+Barriers to entry
+***
+
+* Cost
+
+* Technology 
+
+
 Market Structures
 ***
 
@@ -87,3 +95,6 @@ Market Structures
 * `Oligopoly`
 
 * `Monopoly`
+
+
+
