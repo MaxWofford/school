@@ -69,6 +69,12 @@ Different types of Market Structures
 
 * are affected by some level of competition
 
+`TRUST` a legally formed combination of companies
+
+* 1890 - Sherman Anti-trust Act
+
+* FTC - Federal Trade Commission
+
 Barriers to entry
 ***
 
@@ -92,9 +98,24 @@ Market Structures
 
 * `Monopolistic Competition`
 
+- Single Seller
+- No close substitute goods are available
+- High Barriers to Entry
+
+
 * `Oligopoly`
+- Price Leader (Advantage)
+- Independent Pricing (Disadvantage)
+
 
 * `Monopoly`
 
+- Natural Monopoly: Costs are minimized by having a single producer of the product (ie gas, water, electricity)
 
 
+Market Failures
+===
+
+1 Adequate competition must exist in all markets
+2 Buyers and sellers are reasonably well-infomred about conditions and opportunities
+3 Resources must be free to move from one industry to another 
