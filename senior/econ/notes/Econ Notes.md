@@ -119,3 +119,16 @@ Market Failures
 1 Adequate competition must exist in all markets
 2 Buyers and sellers are reasonably well-infomred about conditions and opportunities
 3 Resources must be free to move from one industry to another 
+
+
+
+
+
+GDP
+---
+GDP = C + I + G + EM -IM
+C= personal consumption
+I= Business Investment or spending
+G= Government expenditures (purchases)
+EX= net export spending
+IM= net import spending
