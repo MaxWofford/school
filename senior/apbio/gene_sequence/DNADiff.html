@@ -1,0 +1,33 @@
+
+	<pre id="display"></pre>
+  <script src="diff.js"></script>
+<table>
+  <tr>
+    <td contenteditable="true" id="a">restaurant</td>
+  </tr>
+  <tr>
+    <td contenteditable="true" id="b">aura</td>
+    <td id="result"></td>
+  </tr>
+</table>
+  <script>
+  var one = 'beep boop';
+  var other = 'beep boob blah';
+  var a = document.getElementById('a');
+  var b = document.getElementById('b');
+  var result = document.getElementById('result');
+  var diff = JsDiff.diffChars(a, b);
+  
+  diff.forEach(function(part){
+    // green for additions, red for deletions
+    // grey for common parts
+    var color = part.added ? 'green' :
+      part.removed ? 'red' : 'grey';
+    var span = document.createElement('span');
+    span.style.color = color;
+    span.appendChild(document
+      .createTextNode(part.value));
+    display.appendChild(span);
+  });
+  </script>
+

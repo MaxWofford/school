@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DNADiff counter</title>
+	<link rel="stylesheet" href="style.css"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+</head>
+<body>
+<div id="settings">
+	<h2>Diff</h2>
+	<label><input type="radio" name="diff_type" value="diffChars" checked> Chars</label>
+	<!--<label><input type="radio" name="diff_type" value="diffWords"> Words</label>
+	<label><input type="radio" name="diff_type" value="diffLines"> Lines</label>
+	<label><input type="radio" name="diff_type" value="createPatch"> Patch</label>
+	<label><input type="radio" name="diff_type" value="applyPatch"> Merge</label>-->
+</div>
+
+<a href="https://github.com/kpdecker/jsdiff" class="source">jsdiff GitHub</a>
+
+<table>
+	<tr>
+		<td contenteditable="true" id="a"></td>
+		<td contenteditable="true" id="b"></td>
+		<td id="result"></td>
+	</tr>
+	<tr>
+		<td>
+			<select name="selectOne">
+			  <option value=".....">1</option>
+			  <option value="">2</option>
+			  <option value="">3</option>
+			  <option value="">4</option>
+			  <option value="">5</option>
+			  <option value="">6</option>
+			  <option value="">7</option>
+			</select>
+		</td>
+		<td>
+			<select name="selectTwo">
+			  <option>1</option>
+			  <option>2</option>
+			  <option>3</option>
+			  <option>4</option>
+			  <option>5</option>
+			  <option>6</option>
+			  <option>7</option>
+			</select>
+		</td>
+	</tr>
+</table>
+
+<h1 style="">I've found <div id="diffNumber"> </div> differences in the lizard DNA!</h1>
+
+<script src="diff.js"></script>
+<script defer>
+var a = document.getElementById('a');
+var b = document.getElementById('b');
+var result = document.getElementById('result');
+
+
+function changed() {
+	if(window.diffType == 'applyPatch') {
+		b.textContent = JsDiff.applyPatch(a.textContent, result.textContent);
+	} else if(window.diffType == 'createPatch') {
+		result.textContent = JsDiff.createPatch('filename',a.textContent, b.textContent,'left','right');
+	} else {
+		var diff = JsDiff[window.diffType](a.textContent, b.textContent);
+		var fragment = document.createDocumentFragment();
+		for (var i=0; i < diff.length; i++) {
+
+			if (diff[i].added && diff[i + 1] && diff[i + 1].removed) {
+				var swap = diff[i];
+				diff[i] = diff[i + 1];
+				diff[i + 1] = swap;
+			}
+
+			var node;
+			if (diff[i].removed) {
+				node = document.createElement('del');
+				node.appendChild(document.createTextNode(diff[i].value));
+			} else if (diff[i].added) {
+				node = document.createElement('ins');
+				node.appendChild(document.createTextNode(diff[i].value));
+			} else {
+				node = document.createTextNode(diff[i].value);
+			}
+			fragment.appendChild(node);
+		}
+
+		result.textContent = '';
+		result.appendChild(fragment);
+	}
+}
+
+window.onload = function() {
+	onDiffTypeChange(document.querySelector('#settings [name="diff_type"]:checked'));
+	changed();
+};
+
+a.onpaste = a.onchange =
+b.onpaste = b.onchange =
+result.onpaste = result.onchange =
+ changed;
+
+if ('oninput' in a) {
+	a.oninput = b.oninput = result.oninput = changed;
+} else {
+	a.onkeyup = b.onkeyup = result.onkeyup = changed;
+}
+
+function onDiffTypeChange(radio) {
+	window.diffType = radio.value;
+	document.title = "Diff " + radio.parentNode.innerText;
+	if(window.diffType == "applyPatch") {
+		b.removeAttribute('contenteditable');
+		result.setAttribute('contenteditable','true');
+	} else {
+		result.removeAttribute('contenteditable');
+		b.setAttribute('contenteditable','true');
+	}
+}
+
+var radio = document.getElementsByName('diff_type');
+for (var i = 0; i < radio.length; i++) {
+	radio[i].onchange = function(e) {
+		onDiffTypeChange(e.target);
+		changed();
+	}
+}
+</script>
+
+<script type="text/javascript">
+	document.getElementById("diffNumber").innerHTML = document.getElementsByTagName("del");
+</script>
+
+</body>
+</html>
