@@ -50,11 +50,15 @@
 	</tr>
 </table>
 
+<input id="clickMe" type="button" value="clickme" onclick="doFunction();" />
+
+<br>
+
 <h1 style="">I've found <div id="diffNumber"> </div> differences in the lizard DNA!</h1>
 
 <script src="diff.js"></script>
 <script defer>
-var a = document.getElementById('a');
+var a = document.getElementById("a");
 var b = document.getElementById('b');
 var result = document.getElementById('result');
 
@@ -88,7 +92,7 @@ function changed() {
 			fragment.appendChild(node);
 		}
 
-		result.textContent = '';
+		result.textContent = 'nodeValue';
 		result.appendChild(fragment);
 	}
 }
@@ -131,8 +135,12 @@ for (var i = 0; i < radio.length; i++) {
 </script>
 
 <script type="text/javascript">
-	document.getElementById("diffNumber").innerHTML = document.getElementsByTagName("del");
+	 {
+	 	document.getElementById("clickMe").onclick = function () {
+		var myArray = document.getElementsByTagName("del");
+		document.getElementById("diffNumber").innerText = myArray.length;
+		};
+	}
 </script>
-
 </body>
 </html>
