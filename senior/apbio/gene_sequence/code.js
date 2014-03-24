@@ -16,7 +16,7 @@ var total = 0
 var compare = function (x,y,z){
 	total=0
 	for (i=0;i<x.length;i++) {
-		if (x[i]!=y[i]) {total=total+1}
+		if (x[i]!=y[i]) {total+=1}
 	}
 }
 compare(c1,c2);c12=total
@@ -41,6 +41,4 @@ compare(c5,c6);c56=total
 compare(c5,c7);c57=total
 compare(c6,c7);c67=total
 
-
-console.log(c12)
-console.log(c13+" "+c23)
+// Could be better
