@@ -7,9 +7,17 @@ Density and dispersion patterns
 	*Uniform [due to interspecies interaction]
 	*Random []
 
-Life Tables
+Visual representations of populations
 ===
+Life tables
 Survivorship curves
-	*Type I [like humans]
-	*Type II []
-	*Type III
+	*Type I [survivability decreases]
+	*Type II [survivabilitiy is constant]
+	*Type III [survivability increases]
+
+Growth models
+	*Exponential [no limiting factor] G = rN
+	*Logistic [with limiting factor] G = rN((K-N) / K)
+
+[Carrying capacity] maximum sustainable population due to environmental limiting factors
+
